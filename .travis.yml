@@ -19,8 +19,8 @@ deploy:
     secure: EpdoGrweJnlXtLcJuoY559uMGQMpc+IIAKWW32HkMUD5nI3O8GBEUDLMOJ4y5OMNTiKMmMWDXJfv9V/84TBSVroTGgrAh/4ilboOeBpXgVoFJtbAs//KeP4nWiO7tuzR/fD++0bd9B5FYlOvxsmUcJurZixjNAmTOX/r8HsphSrj5yFlTaHMcd1DzfJYb3omqqEdAGdbsZURsg9pXRn3Dz2ahAEjOAqcEBRL3jgWOOpIDYOJzJLFaCg0mLu9lB62bJUxxZkCZJ0YP9M3HTxlbfgYf0k4fAwlc+biA1V2pucAthKu5AUgiKEv4pU5RVcA+dER55em2yYawrK0dTbfOe1PvdYxXOB7XEi8ob4ij5xD7NvE74NQ5CaPnZLZjrmW/EaHbbSwCJmfB1Z3egOQt////Wu5UtumWEbiU2AB7IEmZWiHHop4Umyd62+t7jsQ/pEplCe/JmER1HI8lGOMlwl+lnO8tTYZG/TiaY8jKeaPhBwKlgWat2iaclcHUoh9571EJN0ML5su7iQ1JaSmxPW3A+3gy1fQYRfyiorfWBXs42V4qY50fxtFX2QzTuXOZ4nTYOq18R/3pWYIIO98UBetOXWobDQ1wixIxNfk6/4fj3Bl1ld4BFk7rTTO1PXD2wqo18KN0cTCL5o4LEAF271hBZ6QnV9KsLvT1Gy0ciE=
   file_glob: false
   file: 
-	- _build/main.pdf
-	- _build/main.log
+	 _build/main.pdf
+	 _build/main.log
   skip_cleanup: true
 
 
