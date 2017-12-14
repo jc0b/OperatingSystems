@@ -1,7 +1,9 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\graphicspath{{images/}{../images/}}
 \usepackage{listings}
+\usepackage{subfiles}
 
 \title{Operating Systems Notes}
 \author{Jacob Burley} %add your name here if you're a collaborator
@@ -11,6 +13,8 @@
 %images aren't working for whatever reason (pdflatex doesn't find them at build time) which I think requires some extra configuration but the images aren't as important as the content so that's not a focus for me at the moment
 
 \maketitle
+\section*{Test}
+\subfile{ch1/ch1}
 \section{Introduction}
 Operating System runs in kernel mode (supervisor mode), User programs run in User Mode
 \\Instructions that control the machine or use I/O aren't available to User Mode (at least not directly)
@@ -112,5 +116,5 @@ There are four strategies for dealing with deadlocks:
 	\item Prevention, by structurally negating one of the four conditions mentioned above
 \end{enumerate}
 Ostrich Algorithm is acceptable as a solution if deadlocks are rare
-\\Detection and recovery is implemented differently for different scenarios. With unique resources, we can create a resource graph and look for cycles. If there are cycles, the system is deadlocked, otherwise it is not.
+\\Detection and recovery is implemented differently for different scenarios. With unique resources, we can create a resource graph and look for cycles. If there are cycles, the system is deadlocked, otherwise it is not. There is also an algorithm for detecting cycles in 
 \end{document}
