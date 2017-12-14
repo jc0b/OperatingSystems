@@ -6,9 +6,7 @@ before_install:
 script:
 - mkdir _build
 - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build tex/main.tex
-- cd ~/
-- ls
-- cd build
+- pwd
 before_deploy:
       # Set up git user name and tag this commit
       - git config --local user.name "Travis CI"
