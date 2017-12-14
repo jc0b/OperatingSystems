@@ -15,7 +15,7 @@
 \section{Introduction}
 Operating System runs in kernel mode (supervisor mode), User programs run in User Mode
 \\Instructions that control the machine or use I/O aren't available to User Mode (at least not directly)
-%\\\includegraphics[width= 250pt]{tex/ch1/1-1.png}
+\\\includegraphics[width= 250pt]{tex/ch1/1-1.png}
 \\Operating System runs on bare hardware
 \\OS extends hardware of a computer, and makes it easier for programmers to develop applications without having to deal with things like SATA interfaces directly
 \\OS also provides abstractions for devices, files etc.
@@ -132,7 +132,19 @@ This algorithm takes each node in turn, as the root of what it hopes will be a t
 	\\Ideally, we kill processes that can be run again from the beginning with no negative effects. Compiling is a good example, as killing a compile process midway has no influence on the source file it compiled from, thus has no influence on the results of running it a second time. \textbf{Killing processes that aren't idempotent is not a good idea.} You do not want to add duplicate results to a database by killing the program writing to the database halfway through its first operation.
 \end{enumerate}
 Deadlock Avoidance: processes usually ask for their desired resources one at a time. The OS must determine whether granting that resource is safe or not, and do so only if the grant is safe. It is thus possible to make an algorithm that avoids deadlocks by always allocating in a safe way.
-\\\textbf{Safe state:} There is some scheduling order in which every process can run to completion even if all of them suddenly request their maximum number of resources immediately.
-
-
+\\\textbf{Safe state:} There is some scheduling order in which every process is \textit{guaranteed} to run to completion even if all of them suddenly request their maximum number of resources immediately.
+%fig 6-9 in the book would be realllly useful here *shakes fist at pdflatex*
+\\An \textbf{unsafe state} is not a deadlocked state. Entering into an unsafe state may not lead to a deadlock for a little while, but not all of the processes will be able to complete as they will enter a deadlocked state at some point.
+\\Luckily, Dijkstra (of algorithm fame) created a scheduling algorithm to avoid deadlocks, the \textbf{Banker's Algorithm}.
+\subsection*{The Banker's Algorithm}
+The bankers Algorithm needs to know three things to work
+\begin{enumerate}
+	\item How much of each resource each process could possibly request (its MAX)
+	\item How much of each resource each process is currently holding (ALLOCATED)
+	\item How much of each resource the system currently has available (AVAILABLE)
+\end{enumerate}
+We can also assume a NEED value which is equal to $MAX - ALLOCATED$
+\\Resources are only allocated if 
+$$p_{MAX} \leq AVAILABLE$$
+otherwise, the process waits until resources are available. The bank (the system) never allocates its resources (AVAILABLE) in such a way that AVAILABLE would be less than any of its customers MAX - ALLOCATED. This works because if the system needs a resource, it will satisfy the request that keeps the system in a safe state but also allows a process to complete. Upon completing, the process then yields its resources back to the system, so its AVAILABLE can grow.
 \end{document}
