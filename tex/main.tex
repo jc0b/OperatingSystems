@@ -179,7 +179,7 @@ In the above diagram, we can see a matrix on the left showing which resources ar
 If several processes are eligible to be chosen in step 1, we can choose at random. $A$ either gets larger, or in the worst case, it stays the same.
 \\In practice, very few systems use the Banker's Algorithm to avoid deadlocks. Processes in most systems do not know the type or amount of resources that they will need in advance. Resources can also suddenly vanish (if a drive breaks, for example)
 \subsection*{Deadlock Prevention} 
-\\we can try and stop one of the four conditions for deadlocks from happening
+we can try and stop one of the four conditions for deadlocks from happening
 \subsubsection*{Attacking the mutex condition}
 if no resource were ever assigned to just a single process, we would never have deadlocks
 \\For data, we can make it all read only, so all processes can use it at the same time
