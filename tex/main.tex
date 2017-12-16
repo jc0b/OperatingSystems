@@ -122,9 +122,9 @@ There are four strategies for dealing with deadlocks:
 	\item Prevention, by structurally negating one of the four conditions mentioned above
 \end{enumerate}
 \subsection*{Ostrich Algorithm}
-\\acceptable as a solution if deadlocks are rare
+acceptable as a solution if deadlocks are rare
 \subsection*{Detection and recovery}
-\\implemented differently for different scenarios. With unique resources of each type, we can create a resource graph and look for cycles. If there are cycles, the system is deadlocked, otherwise it is not. There is also an algorithm for detecting cycles in a resource graph (useful, as an OS doesn't have eyes)
+implemented differently for different scenarios. With unique resources of each type, we can create a resource graph and look for cycles. If there are cycles, the system is deadlocked, otherwise it is not. There is also an algorithm for detecting cycles in a resource graph (useful, as an OS doesn't have eyes)
 \begin{enumerate}
 	\item For each node $N$ in the graph, perform the following five steps with $N$ as the starting node
 	\item Initialize $L$ as an empty list, and designate all the arcs as unmarked
@@ -143,7 +143,7 @@ This algorithm takes each node in turn, as the root of what it hopes will be a t
 	\\Ideally, we kill processes that can be run again from the beginning with no negative effects. Compiling is a good example, as killing a compile process midway has no influence on the source file it compiled from, thus has no influence on the results of running it a second time. \textbf{Killing processes that aren't idempotent is not a good idea.} You do not want to add duplicate results to a database by killing the program writing to the database halfway through its first operation.
 \end{enumerate}
 \subsection*{Deadlock Avoidance}
-\\processes usually ask for their desired resources one at a time. The OS must determine whether granting that resource is safe or not, and do so only if the grant is safe. It is thus possible to make an algorithm that avoids deadlocks by always allocating in a safe way.
+processes usually ask for their desired resources one at a time. The OS must determine whether granting that resource is safe or not, and do so only if the grant is safe. It is thus possible to make an algorithm that avoids deadlocks by always allocating in a safe way.
 \\\textbf{Safe state:} There is some scheduling order in which every process is \textit{guaranteed} to run to completion even if all of them suddenly request their maximum number of resources immediately.
 \begin{center}
 \includegraphics[width= 250pt]{tex/ch6/6-9.png}
